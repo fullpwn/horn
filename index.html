@@ -118,7 +118,9 @@ border: none;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 }
-
+.announcementbeta {
+  opacity: 25%
+}
 </style>
 <img hidden class="avatar" src="" id="avatar"></img>
 <h1 id="greet">Horn</h1>
@@ -131,11 +133,12 @@ border: none;
 <br>
 <br>
 <a id="prompt2fa" onClick="ihave2fa()">Advanced</a>
-<i><p id="announcementmsg"></p></i>
-<p id="estatus"></p>
     <div class="indeterminate-progress-bar">
       <div class="indeterminate-progress-bar__progress" hidden id="loading"></div>
     </div>
+<i><p id="announcementmsg" class="announcementbeta"></p></i>
+<p id="estatus"></p>
+
 <script>
   var emailinput = document.getElementById("email")
   var instanceinput = document.getElementById("instance")
