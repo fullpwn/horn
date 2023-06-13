@@ -122,39 +122,42 @@ border: none;
 </style>
 <img hidden class="avatar" src="" id="avatar"></img>
 <h1 id="greet">Horn</h1>
-<p><i>Simple login has been disabled. Please use Advanced.</i></p>
 <p id="insttext" hidden>Instance <input  id="instance" type="text"></p>
 <p id="mailtxt" hidden>Email <input id="email" type="email"></p>
 <p id="pwdtxt" hidden>Password <input id="password" type="password"></p>
 <p id="authtxt" hidden>Authorization Token <input id="tokenauth" type="password" hidden></p>
 <button id="signon" onclick="toot()">Sign in</button>
 <a onClick="signout()" hidden id="signout">Not you?</a>
-
 <br>
 <br>
 <a id="prompt2fa" onClick="ihave2fa()">Advanced</a>
+<i><p id="announcementmsg"></p></i>
 <p id="estatus"></p>
     <div class="indeterminate-progress-bar">
       <div class="indeterminate-progress-bar__progress" hidden id="loading"></div>
     </div>
 <script>
-var emailinput = document.getElementById("email")
-var instanceinput = document.getElementById("instance")
-var buttonsignon = document.getElementById("signon")
-    var signoff = document.getElementById("signout")
-var avatarpfp = document.getElementById("avatar")
-var insttext = document.getElementById("insttext")
-var mailtxt = document.getElementById("mailtxt")
-var pwdtxt = document.getElementById("pwdtxt")
-var password = document.getElementById("password")
+  var emailinput = document.getElementById("email")
+  var instanceinput = document.getElementById("instance")
+  var buttonsignon = document.getElementById("signon")
+  var signoff = document.getElementById("signout")
+  var avatarpfp = document.getElementById("avatar")
+  var insttext = document.getElementById("insttext")
+  var mailtxt = document.getElementById("mailtxt")
+  var pwdtxt = document.getElementById("pwdtxt")
+  var password = document.getElementById("password")
   var tokenauth = document.getElementById("tokenauth")
-var authtxt = document.getElementById("authtxt")
-var prompt2fa = document.getElementById("prompt2fa")
+  var authtxt = document.getElementById("authtxt")
+  var prompt2fa = document.getElementById("prompt2fa")
   let pwdlogin = getCookie("ispwdlogin")
   let isusing2falogin = getCookie("isusing2fa")
-    let user = getCookie("friendlyname");
+  let user = getCookie("friendlyname");
   var authclientid
   var authclientsecret
+  if (window.location.host === "beta.horn.fullpwn.net") {
+    document.getElementById("announcementmsg").innerHTML = "You are on the beta channel. Please expect issues to occur."
+    document.getElementById("greet").innerHTML = "Horn Beta"
+  }
   
   if (pwdlogin == "1") {
      document.getElementById("greet").innerHTML = ("Hey " + user + "!");    
